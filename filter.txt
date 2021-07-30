@@ -8,7 +8,7 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
           triggers:
           - match_regex:
               patterns:
-                - '[dnopuy]\.(?!com|(co\.)?uk|net|org|gov|be|on|ca|us|de|jp|edu|es|it)[a-zA-Z]{2,5}\/'
+                - '[dnopuy]\.(?!com|(co\.)?uk|net|org|gov|be|on|ca|us|de|jp|edu|es|it|gg)[a-zA-Z]{2,5}\/'
                 //Searches for a url ending in the letters d, n, o, p, u, or y. Brackets match any character inside them.
                 //A backslash is an escape character. Periods are normally wildcard characters, which we don't want here.
                 //"(?!example)". This is a NOT operator for a group. There are also a lot of OR operators in use here. So the filter breaks if it detects any of the top level domains here.
