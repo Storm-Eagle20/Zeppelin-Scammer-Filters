@@ -1,3 +1,4 @@
+```Regular Expression
       rules:
         urlFilter:
           triggers:
@@ -53,3 +54,4 @@
             ban:
               reason: 'Scammer.'
               delete_message_days: 1
+```
