@@ -41,7 +41,7 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //
                   //Matches either CS:GO *or* skins, then sees if the term "profiles" or "token" appears later on. 
                   
-                - 'don.t be (greedy|modest) and take few'
+                - '[Dd]on.t be (greedy|modest) and take few'
                   //Apostrophes break the code, so I had to use wildcards in place of them.
                   //Scammer sentence, incoherent english. Sometimes uses the word "greedy", sometimes "modest".
                   
