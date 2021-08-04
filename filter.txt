@@ -8,7 +8,7 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
           triggers:
           - match_regex:
               patterns:
-                - '[dnopuy]\.(?!com|(co\.)?uk|net|org|gov|be|on|ca|us|de|jp|edu|es|it|gg)[a-zA-Z]{2,5}\/'
+                - '[dnopuy]\.(?!com|(co\.)?uk|net|org|gov|be|on|ca|us|de|jp|edu|es|it|gg|gle?)[a-zA-Z]{2,5}\/'
                 //Searches for a url ending in the letters d, n, o, p, u, or y. Brackets match any character inside them.
                 //A backslash is an escape character. Periods are normally wildcard characters, which we don't want here.
                 //"(?!example)". This is a NOT operator for a group. There are also a lot of OR operators in use here. So the filter breaks if it detects any of the top level domains here.
@@ -56,6 +56,9 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //Added a NOT operator so that people don't get banned for discussing Nitro Man. Yes. I really did this.
                   //Scammers FREQUENTLY tag everyone in their scam posts, while regular users basically never do it.
                   
+                - 'Free [3-9] Months of Discord Nitro.+http'
+                  //Searches for this exact phrase including exact capitalization, followed by a link later on.
+                  
                 - '([Ss]team|STEAM|[Cc][Ss]:? ?[Gg][Oo]|bit\.ly|[Dd]iscord [Nn]itro (?![Mm]an)).+@everyone'
                   //Reverse of the above. A scammer thought they were clever by dodging a filter by moving the everyone ping to the end.
                   
@@ -73,14 +76,14 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '([Hh]i|[Hh]ello) (bro|friend), today I am leaving this (fucking)? game (with a bunch of cheaters|.+skins)'
                   //Common scammer phrase, with regex to account for minor differences.
                   
-                - 'dlscord(app)?\.(codes|shop)'
+                - 'dlscord(app)?\.(codes|shop|wiki)'
                   //Discord nitro scam link.
                   
                 - '(?!discord\.com)\/billing\/promotions\/[a-zA-Z0-9]{15,}\/$'
                   //Another filter for Discord nitro scams, this one more generic.
                   
-                - 'wowfnatic\.site'
-                  //Highly specific scam link. Unrelated to the Discord/Steam scams.
+                - '(wowfnatic|giveawaynitro)\.(site|com)'
+                  //Highly specific scam links.
                   
                 - '([Dd]iscord [Nn]itro|free|[Ss]team).+airdrop'
                   //Scammers like the word "airdrop". I don't know why. Matching common scam terms with airdrop is going to catch some scammers if the other filters don't.
@@ -101,6 +104,9 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '[Gg]et [1-9] months of [Dd]iscord [Nn]itro.+Personalize your profile'
                   //If someone claims you can "get [x] months of nitro", followed by "Personalize your profile", they are a scammer.
                   //THIS FILTER DOES *NOT* SEARCH EMBEDS. POSTING LEGITIMATE DISCORD NITRO LINKS DOES NOT PUT YOU IN DANGER.
+                  
+                - '(ч|л|э|п|и|б|д|ц).+(@everyone|http)'
+                  //The scammers are Russian and have attempted to dodge filters by speaking Russian. This will no longer be the case.
                   
                 - '(skins?\.?|trade|knife|sale|Rust).+(https:\/\/i\.imgur\.com\/[a-zA-Z0-9]{6,8}\.(png|jpg))?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
