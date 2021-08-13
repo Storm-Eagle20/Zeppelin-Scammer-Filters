@@ -140,6 +140,39 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //False positives are possible, but anyone who says "wats sex" legitimately is too young to use Discord.
                   //Must be preceded by "girls" to reduce false positives, but I'll likely expand on this down the line.
                   
+                - '([Ss]team|[Dd]iscord).+bit\.ly'
+                  //Scammers use bitly frequently. 
+
+                - '2014 Cobblestone Souvenir Package'
+                  //I hardly even know. But it appeared in a scam message.
+                  
+                - '[Gg]et [1-9] months of [Dd]iscord [Nn]itro (for)? free'
+                  //Backup filter for the numerous "free nitro" scammers.
+                  
+                - '\.(xyz|ru|link)\/(gift|nitro|steam)'
+                  //Common scam url parts.
+                  
+                - '[Dd]iscord ([Nn]itro|NITRO) with [Ss]team'
+                  //Scammers commonly claim Steam (not Valve) is giving out Nitro. Therefore an autoban for that false statement.
+                  
+                - 'get.+[Nn]itro(?! [Mm]an).+free'
+                  //Obvious filter.
+                  
+                - '[Ss]team.+[Nn]itro(?! [Mm]an)'
+                  //Different take on the same "Steam is giving away free nitro" scam.
+                  
+                - '([Ss]team|[Nn]itro(?! [Mm]an)).+([Ii] already got mine|[Ii].+already received this)'
+                  //Scammers claim they "already got their free nitro" a lot.
+                  
+                - '([Ii] already got mine|[Ii].+already received this).+([Ss]team|[Nn]itro(?! [Mm]an))'
+                  //Reverse of above.
+                  
+                - '\.ru\.com'
+                  //Scam top-level domain.
+                  
+                - '[Nn]itro.+promotion.+[Ss]team'
+                  //Different take on the free nitro scam.
+                  
                 - '(skins?\.?|trade|knife|sale|Rust).+(https:\/\/i\.imgur\.com\/[a-zA-Z0-9]{6,8}\.(png|jpg))?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
                   
