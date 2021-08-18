@@ -8,7 +8,7 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
           triggers:
           - match_regex:
               patterns:
-                - '[dnopuy]\.(?!com|(co\.)?uk|net|org|gov|be|on|ca|us|de|jp|edu|es|it|gg|gle?|lol)[a-zA-Z]{2,5}\/'
+                - '[dnopuy]\.(?!com|(co\.)?uk|net|org|gov|be|on|ca|us|de|jp|edu|es|it|gg|gle?|lol|png|jpg)[a-zA-Z]{2,5}\/'
                 //Searches for a url ending in the letters d, n, o, p, u, or y. Brackets match any character inside them.
                 //A backslash is an escape character. Periods are normally wildcard characters, which we don't want here.
                 //"(?!example)". This is a NOT operator for a group. There are also a lot of OR operators in use here. So the filter breaks if it detects any of the top level domains here.
@@ -69,6 +69,12 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - 'i abandoned the cop and decided to distribute'
                   //Who knows what the fuck it means. Don't try to comprehend scammer language.
                   
+                - 'confirm the all exchanges'
+                  //Same as above.
+                  
+                - 'take all what you want'
+                  //Same as above.
+                  
                 - 'store[\.\-](?!steampowered|playstation|hp)[^.]+?\.com\/app\/\d+'
                   //A fairly broad filter that looks for common scam links. It's narrow enough to not have any false positives.
                   //"[^.]+" is similar to ".+", but doesn't match periods. This is necessary to avoid false positives.
@@ -76,6 +82,9 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   
                 - '([Hh]i|[Hh]ello) (bro|friend), today I am leaving this (fucking)? game (with a bunch of cheaters|.+skins)'
                   //Common scammer phrase, with regex to account for minor differences.
+                  
+                - '([Hh]i|[Hh]ello) (bro|friend), I left [Cc][Ss]:? ?[Gg][Oo] because.+fucking cheaters in every game'
+                  //Slightly modified version of the filter above, since scammers change up their wording to dodge filters frequently.
                   
                 - 'dlscord(app)?\.(codes|shop|wiki)'
                   //Discord nitro scam link.
@@ -90,12 +99,13 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //Scammers like the word "airdrop". I don't know why. Matching common scam terms with airdrop is going to catch some scammers if the other filters don't.
                   //The filter is also reversed to prevent any smartassery. Which I've seen.
                   
-                - '(i\.)?imgur\.com\/(a\/)?\w{6,8}(\.png|\.jpg)?.+(free|([Dd]iscord)?( |-)[Nn]itro(?! [Mm]an))[^.]+?(for [Ff]ree|([Dd]iscord)?( |-)[Nn]itro(?! [Mm]an))'
+                - '((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?.+(free|([Dd]iscord)?( |-)[Nn]itro(?! [Mm]an))[^.]+?(for [Ff]ree|([Dd]iscord)?( |-)[Nn]itro(?! [Mm]an))'
                   //Scammers like to post photoshopped imgur links as "proof" that their scam is not a scam.
                   //"\w" matches any alphanumeric character, in this case 6 to 8 times to account for a common imgur url.
+                  //Scammers started using ibb.co, which if I recall correctly, is a shortlink to a Twitter image. 
                   
-                - 'imgur\.com\/(a\/)?\w{6,8}(png|jpg)?.+(bit\.ly|discord\.ink)'
-                  //Imgur link followed by a shortlink or a specific scam link. I should probably move the latter part elsewhere, but it works.
+                - '((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?.+(bit\.ly|discord\.ink)'
+                  //Imgur/twitter link followed by a shortlink or a specific scam link. I should probably move the latter part elsewhere, but it works.
                   
                 - '[Hh]ey cuz!!.+[Ss]team'
                   //No American or European man will casually say "Hey cuz" to a stranger. I predict some of these scammers use Slavic dialect that sounds more natural in their home country. Autoban for that on top of "steam".
@@ -173,15 +183,15 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '[Nn]itro.+promotion.+[Ss]team'
                   //Different take on the free nitro scam.
                   
-                - '(skins?\.?|trade|knife|sale|Rust).+(https:\/\/i\.imgur\.com\/[a-zA-Z0-9]{6,8}\.(png|jpg))?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
+                - '(skins?\.?|trade|knife|sale|Rust).+(((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?)?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
                   
                   (skins?\.?|trade|knife|sale|Rust).+
                   //Searches for "skin", "skins", "skins,", "trade", "knife", "sale", or "Rust". An unlimited wildcard follows.
                   //As a side note: The game "Rust" is a common scam regarding scammers. Not sure why.
                   
-                  (https:\/\/i\.imgur\.com\/[a-zA-Z0-9]{6,8}\.(png|jpg))?.+
-                  //An optional imgur link followed by an unlimited wildcard.
+                  (((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?)?.+
+                  //An optional imgur/twitter link followed by an unlimited wildcard.
                   //This is literally only here so it doesn't break the later part of the filter. It otherwise serves no purpose.
                   
                   skins?.+\([^.]+?(i\.)?imgur\.com\/(a\/)?\w{6,8}(png|jpg)?\).+everyone
