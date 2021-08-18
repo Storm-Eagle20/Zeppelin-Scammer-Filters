@@ -194,11 +194,6 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //An optional imgur/twitter link followed by an unlimited wildcard.
                   //This is literally only here so it doesn't break the later part of the filter. It otherwise serves no purpose.
                   
-                  skins?.+\([^.]+?(i\.)?imgur\.com\/(a\/)?\w{6,8}(png|jpg)?\).+everyone
-                  //The word skin with a question mark to account for plural of the word. 
-                  //Often times scammers will post an imgur link inside parenthesis, so we have regex that stands for a generic imgur link inside escaped parenthesis.
-                  //Scammers consistently say the word "everyone" (e.g. "not enough skins for everyone") at the end of their message.
-                  
                   https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}
                   //Searches for http:// or https://.
                   //Instead of "(?!steamcommunity)", it searches "s(?!teamcommunity)" to reduce the risk of false positives.
