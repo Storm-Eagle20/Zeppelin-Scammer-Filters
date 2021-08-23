@@ -183,6 +183,39 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '[Nn]itro.+promotion.+[Ss]team'
                   //Different take on the free nitro scam.
                   
+                - '([Hh]i|[Hh]ello).+[Yy]ou won [Dd]iscord [Nn]itro'
+                  //Scammers like to claim that you "won" free Nitro. No, you didn't.
+                  
+                - 'nitro\.(com|link)'
+                  //I've never seen a legitimate domain that ends in "nitro" before. 
+                  
+                - '[Dd]iscord [Nn](itro|ITRO).+free.+https?:\/\/'
+                  //Automatic ban if the words "discord nitro" are followed by "free" then a URL.
+                  
+                - 'free.+[Dd]iscord [Nn](itro|ITRO).+https?:\/\/'
+                  //Same as above but reversed. 
+                  
+                - 'Customize your profile, share your screen in HD, update your emoji and more!.+https?://'
+                  //Scammers often use official sounding statements, or copy and paste actual official stuff. Ban for that + a URL.
+                  
+                - 'Personalize your profile, screen share in HD, upgrade your emojis, and more!.+https?://'
+                  //Same as above. One scammer thought shaking up the language a bit would bypass existing filters.
+                  
+                - '[Ss]team is giving away [1-9] [Mm]onths of [Dd]iscord [Nn]itro'
+                  //Valve is NOT giving away Nitro...
+                  
+                - '[Ss]team ?give ?[Nn]itro'
+                  //One scammer decided to use caveman dialect. No, "steam not give nitro".
+                  
+                - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/d(?!iscord)[il]scou?r(d|cl)\.[a-z]{2,5}(\.uk)?'
+                  //A group of common scammer phrases followed by a fishy enough URL will get them autobanned. 
+                  
+                - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/cliscou?r(d|cl)\.[a-z]{2,5}(\.uk)?'
+                  //Very slightly modified version of the filter above.
+                  
+                - 'https?:\/\/([a-z]{6,9}|free|gifts)-?nitro(ss?|i)?\.[a-z]{2,5}(\.uk|.com)?.{5,12}( @everyone)?$'
+                  //Generic URL filter for "free nitro" scams. Should catch roughly half of them.
+                  
                 - '(skins?\.?|trade|knife|sale|Rust).+(((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?)?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
                   
