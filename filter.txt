@@ -216,6 +216,12 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - 'https?:\/\/([a-z]{6,9}|free|gifts)-?nitro(ss?|i)?\.[a-z]{2,5}(\.uk|.com)?.{5,12}( @everyone)?$'
                   //Generic URL filter for "free nitro" scams. Should catch roughly half of them.
                   
+                - 'some [Jj]apanese candy'
+                  // https://i.imgur.com/lVJslzs.png
+                  
+                - 'bonsaignw'
+                  //Same as above.
+                  
                 - '(skins?\.?|trade|knife|sale|Rust).+(((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?)?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
                   
