@@ -207,10 +207,10 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '[Ss]team ?give ?[Nn]itro'
                   //One scammer decided to use caveman dialect. No, "steam not give nitro".
                   
-                - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/d(?!iscord)[il]scou?r(d|cl)\.[a-z]{2,5}(\.uk)?'
+                - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/d(?!iscord)[il]scou?r(d|cl|b)\.[a-z]{2,5}(\.uk)?'
                   //A group of common scammer phrases followed by a fishy enough URL will get them autobanned. 
                   
-                - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/cliscou?r(d|cl)\.[a-z]{2,5}(\.uk)?'
+                - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/cliscou?r(d|cl|b)\.[a-z]{2,5}(\.uk)?'
                   //Very slightly modified version of the filter above.
                   
                 - 'https?:\/\/([a-z]{6,9}|free|gifts)-?nitro(ss?|i)?\.[a-z]{2,5}(\.uk|.com)?.{5,12}( @everyone)?$'
