@@ -41,8 +41,8 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //
                   //Matches either CS:GO *or* skins, then sees if the term "profiles" or "token" appears later on. 
                   
-                - '[Dd]on.t be (greedy|modest) and take few'
-                  //Apostrophes break the code, so I had to use wildcards in place of them.
+                - '[Dd]on\u0027t be (greedy|modest) and take few'
+                  //Apostrophes break the code, so I had to use "\u0027" in place of them, which is a unicode character.
                   //Scammer sentence, incoherent english. Sometimes uses the word "greedy", sometimes "modest".
                   
                 - '[Cc][Ss]:? ?[Gg][Oo].{3,}giving away'
@@ -195,6 +195,9 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - 'free.+[Dd]iscord [Nn](itro|ITRO).+https?:\/\/'
                   //Same as above but reversed. 
                   
+                - '[Ff]ree [Nn]itro(?! [Mm]an).+https?:\/\/'
+                  //Smartass scammer tried changing up the wording, instead of "Free Discord Nitro", he tried "Free Nitro". It failed, and I put an additional countermeasure for it.
+                  
                 - 'Customize your profile, share your screen in HD, update your emoji and more!.+https?://'
                   //Scammers often use official sounding statements, or copy and paste actual official stuff. Ban for that + a URL.
                   
@@ -221,6 +224,9 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   
                 - 'bonsaignw'
                   //Same as above.
+                  
+                - '[Dd]ont than\u0027k'
+                  // "Dont than'k" is typical of the scammer's terrible grammar.
                   
                 - '(skins?\.?|trade|knife|sale|Rust).+(((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?)?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
