@@ -63,6 +63,8 @@ plugins:
                 - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/d(?!iscord)[il]scou?r(d|cl)\.[a-z]{2,5}(\.uk)?'
                 - '(([Hh]i|[Hh]ello),? (bro|friend),|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/cliscou?r(d|cl)\.[a-z]{2,5}(\.uk)?'
                 - 'https?:\/\/([a-z]{6,9}|free|gifts)-?nitro(ss?|i)?\.[a-z]{2,5}(\.uk|.com)?.{5,12}( @everyone)?$'
+                - 'some [Jj]apanese candy'
+                - 'bonsaignw'
               case_sensitive: false
               match_messages: true
               match_embeds: false
