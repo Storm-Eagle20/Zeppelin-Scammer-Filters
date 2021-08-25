@@ -7,7 +7,7 @@ plugins:
           - match_regex:
               patterns: 
                 - '([Cc][Ss]:? ?[Gg][Oo]|skins).{50,}(profiles|token)'
-                - '[Dd]on.t be (greedy|modest) and take few'
+                - '[Dd]on\u0027t be (greedy|modest) and take few'
                 - '[Cc][Ss]:? ?[Gg][Oo].{3,}(giving away|give everything|trade)'
                 - '([Hh]ello|[Hh]i).{20,}i will give a.{3,}knife'
                 - '@everyone.+([Ss]team|STEAM|[Cc][Ss]:? ?[Gg][Oo]|bit\.ly|[Dd]iscord( |-)[Nn]itro(?! [Mm]an)|🆓)'
@@ -54,6 +54,7 @@ plugins:
                 - 'nitro\.(com|link)'
                 - '[Dd]iscord [Nn](itro|ITRO).+free.+https?:\/\/'
                 - 'free.+[Dd]iscord [Nn](itro|ITRO).+https?:\/\/'
+                - '[Ff]ree [Nn]itro(?! [Mm]an).+https?:\/\/'
                 - 'confirm the all exchanges'
                 - 'take all what you want'
                 - 'Customize your profile, share your screen in HD, update your emoji and more!.+https?://'
@@ -65,6 +66,7 @@ plugins:
                 - 'https?:\/\/([a-z]{6,9}|free|gifts)-?nitro(ss?|i)?\.[a-z]{2,5}(\.uk|.com)?.{5,12}( @everyone)?$'
                 - 'some [Jj]apanese candy'
                 - 'bonsaignw'
+                - '[Dd]ont than\u0027k'
               case_sensitive: false
               match_messages: true
               match_embeds: false
