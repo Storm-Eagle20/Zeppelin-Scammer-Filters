@@ -51,17 +51,17 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '([Hh]ello|[Hh]i).{20,}i will give a.{3,}knife'
                   //Matches "Hello" or "Hi" followed by "i will give a knife", again accounting for poor english. Another scammer phrase.
                   
-                - '@everyone.+([Ss]team|STEAM|[Cc][Ss]:? ?[Gg][Oo]|bit\.ly|[Dd]iscord( |-)[Nn]itro (?![Mm]an)|🆓)'
+                - '@everyone.+([Ss]team|STEAM|[Cc][Ss]:? ?[Gg][Oo]|bit\.ly|[Dd]iscord( |-)[Nn]itro (?![Mm]an)|🆓|hurry up)'
                   //Searches for an everyone ping, ".+" is an unlimited wildcard character, but it has to follow up with Steam, CS:GO, a shortlink, or Discord Nitro.
                   //Added a NOT operator so that people don't get banned for discussing Nitro Man. Yes. I really did this.
                   //Scammers FREQUENTLY tag everyone in their scam posts, while regular users basically never do it.
-                  //Free emoji used. Scammers have attempted to bypass filters with i t.
+                  //Free emoji used. Scammers have attempted to bypass filters with it.
+                  
+                - '([Ss]team|STEAM|[Cc][Ss]:? ?[Gg][Oo]|bit\.ly|[Dd]iscord( |-)[Nn]itro (?![Mm]an)|🆓|hurry up).+@everyone'
+                  //Reverse of the above. A scammer thought they were clever by dodging a filter by moving the everyone ping to the end.
                   
                 - 'Free [3-9] Months of Discord( |-)Nitro.+http'
                   //Searches for this exact phrase including exact capitalization, followed by a link later on.
-                  
-                - '([Ss]team|STEAM|[Cc][Ss]:? ?[Gg][Oo]|bit\.ly|[Dd]iscord( |-)[Nn]itro (?![Mm]an)).+@everyone'
-                  //Reverse of the above. A scammer thought they were clever by dodging a filter by moving the everyone ping to the end.
                   
                 - 'first.{3,15}who send a trade'
                   //Scammers frequently say "the first [x] who send a trade".
@@ -80,10 +80,10 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                   //"[^.]+" is similar to ".+", but doesn't match periods. This is necessary to avoid false positives.
                   //"\d" is a character class. Backslashes followed by letters or specific characters are basically regex commands. In this case, \d matches a single digit.
                   
-                - '([Hh]i|[Hh]ello) (bro|friend), today I am leaving this (fucking)? game (with a bunch of cheaters|.+skins)'
+                - '([Hh]i|[Hh]ello) (bro|friend|guys), today I am leaving this (fucking)? game (with a bunch of cheaters|.+skins)'
                   //Common scammer phrase, with regex to account for minor differences.
                   
-                - '([Hh]i|[Hh]ello) (bro|friend), I left [Cc][Ss]:? ?[Gg][Oo] because.+fucking cheaters in every game'
+                - '([Hh]i|[Hh]ello) (bro|friend|guys), I left [Cc][Ss]:? ?[Gg][Oo] because.+fucking cheaters in every game'
                   //Slightly modified version of the filter above, since scammers change up their wording to dodge filters frequently.
                   
                 - 'dlscord(app)?\.(codes|shop|wiki)'
@@ -198,11 +198,8 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '[Ff]ree [Nn]itro(?! [Mm]an).+https?:\/\/'
                   //Smartass scammer tried changing up the wording, instead of "Free Discord Nitro", he tried "Free Nitro". It failed, and I put an additional countermeasure for it.
                   
-                - 'Customize your profile, share your screen in HD, update your emoji and more!.+https?://'
+                - '(Customize|Personalize) your profile, share (your )?screen in HD, up(date|grade) your emojis?,? and more!.+https?:\/\/'
                   //Scammers often use official sounding statements, or copy and paste actual official stuff. Ban for that + a URL.
-                  
-                - 'Personalize your profile, screen share in HD, upgrade your emojis, and more!.+https?://'
-                  //Same as above. One scammer thought shaking up the language a bit would bypass existing filters.
                   
                 - '[Ss]team is giving away [1-9] [Mm]onths of [Dd]iscord [Nn]itro'
                   //Valve is NOT giving away Nitro...
@@ -210,10 +207,10 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - '[Ss]team ?give ?[Nn]itro'
                   //One scammer decided to use caveman dialect. No, "steam not give nitro".
                   
-                - '(([Hh]i|[Hh]ello),? (bro|friend)(,|!)|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/d(?!iscord)[il]scou?r(d|cl|b)\.[a-z]{2,5}(\.uk)?'
+                - '(([Hh]i|[Hh]ello),? (bro|friend|guys)(,|!)|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/d(?!iscord)[il]scou?r(d|cl|b)(gift)?\.[a-z]{2,5}(\.uk)?'
                   //A group of common scammer phrases followed by a fishy enough URL will get them autobanned. 
                   
-                - '(([Hh]i|[Hh]ello),? (bro|friend)(,|!)|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/cliscou?r(d|cl|b)\.[a-z]{2,5}(\.uk)?'
+                - '(([Hh]i|[Hh]ello),? (bro|friend|guys)(,|!)|free|[Nn]itro(?! [Mm]an)|[Ss]team).+https?:\/\/cliscou?r(d|cl|b)(gift)?\.[a-z]{2,5}(\.uk)?'
                   //Very slightly modified version of the filter above.
                   
                 - 'https?:\/\/([a-z]{6,9}|free|gifts)-?nitro(ss?|i)?\.[a-z]{2,5}(\.uk|.com)?.{5,12}( @everyone)?$'
@@ -225,8 +222,14 @@ DO NOT ENTER ANY URLS LISTED IN THIS FILTER. YOU /WILL/ GET MALWARE FROM THEM. N
                 - 'bonsaignw'
                   //Same as above.
                   
-                - '[Dd]ont than\u0027k'
-                  // "Dont than'k" is typical of the scammer's terrible grammar.
+                - '[Dd]iscord giving [1-9] [Mm]onths? of [Ff]ree [Nn]itro'
+                  //Discord does not casually give out free Nitro. At least not any more. During any sort of promotion I can remove this.
+                  
+                - 'hurry up.+([Nn]itro(?! [Mm]an)|trade|skin|[Cc][Ss]:? ?[Gg][Oo]).+https?:\/\/'
+                  //A lot of scammers like to say "hurry up" for a feeling of FOMO to attempt to boost the rate of their scams working. 
+                  
+                - '([Nn]itro(?! [Mm]an)|trade|skin|[Cc][Ss]:? ?[Gg][Oo]).+hurry up.+https?:\/\/'
+                  //Reverse of the above. 
                   
                 - '(skins?\.?|trade|knife|sale|Rust).+(((i\.)?imgur\.com|ibb\.co)\/(a\/)?\w{6,8}(\.png|\.jpg)?)?.+https?:\/\/s(?!teamcommunity)[^.]+?\.com\/\w{3,12}(=[a-z0-9]{6,8}=\?[0-9]{1,}|\/[0-9]{15,}|\/([a-z0-9]{2,3}\/)?\?[a-z]{5,10}=[0-9]{6,14}&[a-z]{4,6}=-?\w{4,12}|\/[0-9]{5,8}\/\w{4,8}\/)$'
                   //This filter is extremely long and highly specific. Let me break it into several sections and make it easier to read.
